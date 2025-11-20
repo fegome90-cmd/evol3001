@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { Template } from '@repo/types';
-import { TextEngine } from '@repo/core';
-import { NURSING_TEMPLATES } from '@repo/config';
+import { TextEngine } from '@repo/core/engine';
+import { NURSING_TEMPLATES } from '@repo/config/templates';
 
 interface AppState {
   activeTemplate: Template;
