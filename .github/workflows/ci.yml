@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 2
 
@@ -30,6 +30,12 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Type Check
+        run: pnpm run type-check
+
+      - name: Format Check
+        run: pnpm run format:check
 
       - name: Build
         run: pnpm build

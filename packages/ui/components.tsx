@@ -1,24 +1,22 @@
 import React from 'react';
 
-export const Chip = ({ 
-  label, 
-  selected, 
-  onClick 
-}: { 
-  label: string; 
-  selected: boolean; 
-  onClick: () => void 
+export const Chip = ({
+  label,
+  selected,
+  onClick,
+}: {
+  label: string;
+  selected: boolean;
+  onClick: () => void;
 }) => {
   return (
     <button
       onClick={onClick}
-      className={`
-        px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ease-in-out
-        border select-none focus:outline-none focus:ring-2 focus:ring-primary/50
-        ${selected 
-          ? 'bg-primary text-white border-primary shadow-md scale-[1.02]' 
-          : 'bg-white text-slate-600 border-slate-200 hover:border-primary/50 hover:bg-slate-50'}
-      `}
+      className={`focus:ring-primary/50 select-none rounded-full border px-4 py-2 text-sm font-medium transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 ${
+        selected
+          ? 'bg-primary border-primary scale-[1.02] text-white shadow-md'
+          : 'hover:border-primary/50 border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
+      } `}
       aria-pressed={selected}
     >
       {label}
@@ -26,14 +24,22 @@ export const Chip = ({
   );
 };
 
-export const Card = ({ children, className = '' }: { children: React.ReactNode; className?: string }) => (
-  <div className={`bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden ${className}`}>
+export const Card = ({
+  children,
+  className = '',
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <div
+    className={`overflow-hidden rounded-xl border border-slate-100 bg-white shadow-sm ${className}`}
+  >
     {children}
   </div>
 );
 
 export const SectionHeader = ({ title }: { title: string }) => (
-  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 ml-1">
+  <h3 className="mb-3 ml-1 text-xs font-bold uppercase tracking-wider text-slate-400">
     {title}
   </h3>
 );
