@@ -10,22 +10,22 @@ interface LayoutContainerProps {
 export const LayoutContainer = ({
   children,
   className,
-  sidebar
+  sidebar,
 }: LayoutContainerProps) => {
   return (
-    <div className={cn("flex h-screen overflow-hidden bg-background", className)}>
+    <div
+      className={cn('bg-background flex h-screen overflow-hidden', className)}
+    >
       {/* Sidebar Area */}
       {sidebar && (
-        <aside className="w-64 hidden md:flex flex-col border-r bg-card">
+        <aside className="bg-card hidden w-64 flex-col border-r md:flex">
           {sidebar}
         </aside>
       )}
 
       {/* Main Content Area */}
       <main className="flex-1 overflow-y-auto">
-        <div className="container mx-auto p-6 h-full">
-          {children}
-        </div>
+        <div className="container mx-auto h-full p-6">{children}</div>
       </main>
     </div>
   );

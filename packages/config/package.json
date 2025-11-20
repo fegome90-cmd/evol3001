@@ -5,7 +5,8 @@
   "main": "./templates.ts",
   "types": "./templates.ts",
   "scripts": {
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint . --max-warnings 0",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@repo/core": "workspace:*",

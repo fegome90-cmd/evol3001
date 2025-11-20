@@ -8,10 +8,14 @@ interface AppState {
   // selections: Record<sectionId, optionId[]>
   selections: Record<string, string[]>;
   generatedText: string;
-  
+
   // Actions
   setTemplate: (templateId: string) => void;
-  toggleOption: (sectionId: string, optionId: string, type: 'single' | 'multi') => void;
+  toggleOption: (
+    sectionId: string,
+    optionId: string,
+    type: 'single' | 'multi'
+  ) => void;
   resetSelections: () => void;
   setGeneratedText: (text: string) => void; // Allow manual overwrite or AI update
 }
@@ -22,12 +26,12 @@ export const useStore = create<AppState>((set, get) => ({
   generatedText: '',
 
   setTemplate: (templateId) => {
-    const template = NURSING_TEMPLATES.find(t => t.id === templateId);
+    const template = NURSING_TEMPLATES.find((t) => t.id === templateId);
     if (template) {
-      set({ 
-        activeTemplate: template, 
+      set({
+        activeTemplate: template,
         selections: {},
-        generatedText: '' 
+        generatedText: '',
       });
     }
   },
@@ -46,22 +50,22 @@ export const useStore = create<AppState>((set, get) => ({
       }
     } else if (sectionSelections.includes(optionId)) {
       // Multi-select
-      newSectionSelections = sectionSelections.filter(id => id !== optionId);
+      newSectionSelections = sectionSelections.filter((id) => id !== optionId);
     } else {
       newSectionSelections = [...sectionSelections, optionId];
     }
 
     const newSelections = {
       ...currentSelections,
-      [sectionId]: newSectionSelections
+      [sectionId]: newSectionSelections,
     };
 
     // Auto-compile text on change (Reactive)
     const text = TextEngine.compile(get().activeTemplate, newSelections);
 
-    set({ 
+    set({
       selections: newSelections,
-      generatedText: text
+      generatedText: text,
     });
   },
 
@@ -71,5 +75,5 @@ export const useStore = create<AppState>((set, get) => ({
 
   setGeneratedText: (text: string) => {
     set({ generatedText: text });
-  }
+  },
 }));
