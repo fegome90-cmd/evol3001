@@ -23,7 +23,8 @@ export const App = () => {
     
     setIsThinking(true);
     try {
-        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+        // The API key must be obtained exclusively from process.env.API_KEY
+        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
         
         const prompt = `
           Actúa como un redactor médico experto y enfermero profesional.
