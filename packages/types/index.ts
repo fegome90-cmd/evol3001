@@ -1,3 +1,10 @@
+export interface Parameter {
+  id: string;
+  label: string;
+  placeholder?: string;
+  defaultValue?: string;
+}
+
 export interface Option {
   id: string;
   label: string; // The UI text (e.g., "Alert")
