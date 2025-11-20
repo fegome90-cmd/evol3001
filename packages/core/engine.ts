@@ -7,7 +7,7 @@ import { Template } from '@repo/types';
  */
 export class TextEngine {
   static compile(template: Template, selections: Record<string, string[]>): string {
-    let outputParts: string[] = [];
+    const outputParts: string[] = [];
 
     // Iterate through sections in order
     for (const section of template.sections) {
