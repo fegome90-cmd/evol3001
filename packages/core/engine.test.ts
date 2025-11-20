@@ -8,14 +8,15 @@ describe('TextEngine', () => {
       const template: Template = {
         id: 'test-template',
         name: 'Test Template',
+        category: 'test',
         sections: [
           {
             id: 'section1',
             title: 'Section 1',
-            multiSelect: false,
+            type: 'single',
             options: [
-              { id: 'opt1', value: 'Option 1' },
-              { id: 'opt2', value: 'Option 2' }
+              { id: 'opt1', label: 'Option 1', value: 'Option 1' },
+              { id: 'opt2', label: 'Option 2', value: 'Option 2' }
             ]
           }
         ]
@@ -33,15 +34,16 @@ describe('TextEngine', () => {
       const template: Template = {
         id: 'test-template',
         name: 'Test Template',
+        category: 'test',
         sections: [
           {
             id: 'section1',
             title: 'Symptoms',
-            multiSelect: true,
+            type: 'multi',
             options: [
-              { id: 'opt1', value: 'fever' },
-              { id: 'opt2', value: 'cough' },
-              { id: 'opt3', value: 'fatigue' }
+              { id: 'opt1', label: 'Fever', value: 'fever' },
+              { id: 'opt2', label: 'Cough', value: 'cough' },
+              { id: 'opt3', label: 'Fatigue', value: 'fatigue' }
             ]
           }
         ]
@@ -59,21 +61,22 @@ describe('TextEngine', () => {
       const template: Template = {
         id: 'test-template',
         name: 'Test Template',
+        category: 'test',
         sections: [
           {
             id: 'section1',
             title: 'Section 1',
-            multiSelect: false,
+            type: 'single',
             options: [
-              { id: 'opt1', value: 'Option 1' }
+              { id: 'opt1', label: 'Option 1', value: 'Option 1' }
             ]
           },
           {
             id: 'section2',
             title: 'Section 2',
-            multiSelect: false,
+            type: 'single',
             options: [
-              { id: 'opt2', value: 'Option 2' }
+              { id: 'opt2', label: 'Option 2', value: 'Option 2' }
             ]
           }
         ]
@@ -91,21 +94,22 @@ describe('TextEngine', () => {
       const template: Template = {
         id: 'test-template',
         name: 'Test Template',
+        category: 'test',
         sections: [
           {
             id: 'section1',
             title: 'Section 1',
-            multiSelect: false,
+            type: 'single',
             options: [
-              { id: 'opt1', value: 'Option 1' }
+              { id: 'opt1', label: 'Option 1', value: 'Option 1' }
             ]
           },
           {
             id: 'section2',
             title: 'Section 2',
-            multiSelect: false,
+            type: 'single',
             options: [
-              { id: 'opt2', value: 'Option 2' }
+              { id: 'opt2', label: 'Option 2', value: 'Option 2' }
             ]
           }
         ]
@@ -124,13 +128,14 @@ describe('TextEngine', () => {
       const template: Template = {
         id: 'test-template',
         name: 'Test Template',
+        category: 'test',
         sections: [
           {
             id: 'section1',
             title: 'Section 1',
-            multiSelect: false,
+            type: 'single',
             options: [
-              { id: 'opt1', value: 'Option 1' }
+              { id: 'opt1', label: 'Option 1', value: 'Option 1' }
             ]
           }
         ]
@@ -146,15 +151,16 @@ describe('TextEngine', () => {
       const template: Template = {
         id: 'test-template',
         name: 'Test Template',
+        category: 'test',
         sections: [
           {
             id: 'section1',
             title: 'Section 1',
-            multiSelect: true,
+            type: 'multi',
             options: [
-              { id: 'opt1', value: 'Valid option' },
-              { id: 'opt2', value: '   ' },
-              { id: 'opt3', value: 'Another valid' }
+              { id: 'opt1', label: 'Valid option', value: 'Valid option' },
+              { id: 'opt2', label: 'Empty', value: '   ' },
+              { id: 'opt3', label: 'Another valid', value: 'Another valid' }
             ]
           }
         ]
