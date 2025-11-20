@@ -20,9 +20,5 @@ export default defineConfig({
       "@repo/types": resolve(__dirname, "../../packages/types"),
       "@repo/schema": resolve(__dirname, "../../packages/schema")
     }
-  },
-  define: {
-    // Map process.env.API_KEY to Vite's environment variable
-    'process.env.API_KEY': JSON.stringify(process.env.VITE_API_KEY)
   }
 });

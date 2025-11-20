@@ -24,8 +24,8 @@ export const App = () => {
     
     setIsThinking(true);
     try {
-        // The API key must be obtained exclusively from process.env.API_KEY
-        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        // The API key must be obtained from Vite's environment variable
+        const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY });
         
         const prompt = `
           Actúa como un redactor médico experto y enfermero profesional.
