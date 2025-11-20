@@ -5,8 +5,14 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["vite/client"]
+    "types": ["vite/client", "node"],
+    "noEmit": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["**/*.ts", "**/*.tsx", "vite.config.mts"],
+  "exclude": ["node_modules", "dist"],
+  "references": [
+    { "path": "../../packages/core" },
+    { "path": "../../packages/config" },
+    { "path": "../../packages/types" }
+  ]
 }

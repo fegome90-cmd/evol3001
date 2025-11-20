@@ -1,0 +1,5 @@
+# Ignore compiled JavaScript files
+*.js
+*.d.ts
+dist/
+node_modules/
