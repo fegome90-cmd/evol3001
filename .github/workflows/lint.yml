@@ -1,0 +1,99 @@
+name: Lint & Format
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  prettier:
+    name: Prettier Format Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check Prettier configuration
+        id: check-prettier-config
+        run: |
+          if [ -s .prettierrc ] || [ -f .prettierrc.json ] || [ -f .prettierrc.js ]; then
+            echo "config_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "config_exists=false" >> $GITHUB_OUTPUT
+            echo "⚠️ Prettier config file is empty or not found"
+          fi
+
+      - name: Run Prettier check
+        if: steps.check-prettier-config.outputs.config_exists == 'true'
+        run: npx prettier --check .
+
+      - name: Skip Prettier
+        if: steps.check-prettier-config.outputs.config_exists == 'false'
+        run: |
+          echo "⚠️ Prettier check skipped - configuration needed"
+          echo "Add Prettier configuration to .prettierrc to enable format checking"
+
+  eslint:
+    name: ESLint Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check ESLint configuration
+        id: check-eslint-config
+        run: |
+          if [ -f .eslintrc ] || [ -f .eslintrc.json ] || [ -f .eslintrc.js ] || [ -f eslint.config.js ]; then
+            echo "config_exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "config_exists=false" >> $GITHUB_OUTPUT
+            echo "⚠️ ESLint config file not found"
+          fi
+
+      - name: Run ESLint
+        if: steps.check-eslint-config.outputs.config_exists == 'true'
+        run: npx eslint .
+
+      - name: Skip ESLint
+        if: steps.check-eslint-config.outputs.config_exists == 'false'
+        run: |
+          echo "⚠️ ESLint check skipped - configuration needed"
+          echo "Install and configure ESLint to enable linting:"
+          echo "  pnpm add -D eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin"
+          echo "  pnpm add -D eslint-plugin-react eslint-plugin-react-hooks"
