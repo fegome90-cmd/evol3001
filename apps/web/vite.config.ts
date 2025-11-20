@@ -10,7 +10,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./"),
+      "@": path.resolve(__dirname, "./src"),
       "@repo/core": path.resolve(__dirname, "../../packages/core"),
       "@repo/ui": path.resolve(__dirname, "../../packages/ui"),
       "@repo/config": path.resolve(__dirname, "../../packages/config"),
