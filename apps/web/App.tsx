@@ -26,12 +26,12 @@ export const App = () => {
         const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
         
         const prompt = `
-          You are a professional medical scribe. 
-          Rewrite the following nursing notes to be grammatically fluid, professional, and concise. 
-          Maintain a strict medical tone. Do not invent information. 
-          Combine related sentences logically.
+          Actúa como un redactor médico experto y enfermero profesional.
+          Reescribe las siguientes notas de enfermería para que sean gramaticalmente fluidas, profesionales y concisas en ESPAÑOL.
+          Mantén un tono clínico estricto. No inventes información que no esté presente.
+          Combina oraciones relacionadas lógicamente.
           
-          Input Notes:
+          Notas de entrada:
           ${generatedText}
         `;
 
@@ -45,7 +45,7 @@ export const App = () => {
         }
     } catch (error) {
       console.error("AI Error:", error);
-      alert("Could not connect to AI service. Please check API Key.");
+      alert("No se pudo conectar con el servicio de IA. Verifica tu API Key.");
     } finally {
       setIsThinking(false);
     }
@@ -69,7 +69,7 @@ export const App = () => {
         </div>
         
         <nav className="space-y-1">
-          <SectionHeader title="Templates" />
+          <SectionHeader title="Plantillas" />
           {NURSING_TEMPLATES.map(t => (
             <button
               key={t.id}
@@ -88,9 +88,9 @@ export const App = () => {
 
         <div className="mt-auto pt-8">
           <div className="bg-slate-50 rounded-lg p-3 text-xs text-slate-500">
-            <p className="font-medium text-slate-700 mb-1">System Status</p>
-            <p>Engine: Core v1.0.0</p>
-            <p>Data: Config v1.2.0</p>
+            <p className="font-medium text-slate-700 mb-1">Estado del Sistema</p>
+            <p>Motor: Core v1.0.0</p>
+            <p>Datos: Config v1.2.0 (ES)</p>
           </div>
         </div>
       </aside>
@@ -102,7 +102,7 @@ export const App = () => {
         <header className="h-14 border-b border-slate-200 bg-white flex items-center justify-between px-6 flex-shrink-0">
           <h2 className="font-semibold text-slate-800">{activeTemplate.name}</h2>
           <Button variant="ghost" onClick={resetSelections} className="text-sm">
-            Reset Form
+            Reiniciar
           </Button>
         </header>
 
@@ -133,7 +133,7 @@ export const App = () => {
           {/* Preview Section (Fixed on Desktop, Bottom on Mobile usually but here side-by-side) */}
           <div className="w-full md:w-[450px] bg-slate-50 border-l border-slate-200 flex flex-col h-[50vh] md:h-auto border-t md:border-t-0">
             <div className="p-4 border-b border-slate-200 flex items-center justify-between bg-white">
-              <h3 className="font-semibold text-slate-700">Live Record</h3>
+              <h3 className="font-semibold text-slate-700">Registro en Vivo</h3>
               <div className="flex gap-2">
                  {/* AI Magic Button */}
                 <Button 
@@ -144,11 +144,11 @@ export const App = () => {
                 >
                   {isThinking ? (
                     <span className="flex items-center gap-2">
-                       <span className="animate-spin">✨</span> Polishing...
+                       <span className="animate-spin">✨</span> Puliendo...
                     </span>
                   ) : (
                     <span className="flex items-center gap-1">
-                       <span>✨</span> AI Polish
+                       <span>✨</span> IA Mejorar
                     </span>
                   )}
                 </Button>
@@ -157,7 +157,7 @@ export const App = () => {
             
             <div className="flex-1 p-4 overflow-y-auto">
               <Card className="h-full p-4 bg-white font-mono text-sm text-slate-700 leading-relaxed whitespace-pre-wrap shadow-none border-slate-200">
-                {generatedText || <span className="text-slate-400 italic">Select options to generate note...</span>}
+                {generatedText || <span className="text-slate-400 italic">Selecciona opciones para generar la nota...</span>}
               </Card>
             </div>
 
@@ -167,7 +167,7 @@ export const App = () => {
                 className="w-full"
                 disabled={!generatedText}
               >
-                {copyFeedback ? "Copied to Clipboard!" : "Copy Record"}
+                {copyFeedback ? "¡Copiado al portapapeles!" : "Copiar Registro"}
               </Button>
             </div>
           </div>
