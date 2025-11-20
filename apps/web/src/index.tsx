@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { App } from './apps/web/App';
+import { App } from './App';
+import './index.css'; // Assuming we will create/move CSS or import Tailwind here
 
 const container = document.getElementById('root');
 if (container) {

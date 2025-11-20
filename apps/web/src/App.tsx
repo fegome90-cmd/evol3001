@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useStore } from './store';
-import { NURSING_TEMPLATES } from '../../packages/config/templates';
-import { Chip, SectionHeader, Card, Button } from '../../packages/ui/components';
+import { NURSING_TEMPLATES } from '@repo/config/templates';
+import { Chip, SectionHeader, Card, Button } from '@repo/ui/components';
 import { GoogleGenAI } from "@google/genai";
 
 export const App = () => {
