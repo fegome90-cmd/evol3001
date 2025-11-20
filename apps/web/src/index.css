@@ -73,7 +73,7 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
-  
+
   /* Custom Scrollbar integration */
   ::-webkit-scrollbar {
     width: 8px;
