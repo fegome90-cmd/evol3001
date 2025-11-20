@@ -1,0 +1,9 @@
+# CodeRabbit Configuration File
+# Documentation: https://coderabbit.ai/docs
+
+reviews:
+  tools:
+    oxc:
+      enabled: true
+      # Optional: Configure oxlint arguments
+      # args: "--deny-warnings"
