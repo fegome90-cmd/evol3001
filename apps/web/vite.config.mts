@@ -21,7 +21,7 @@ export default defineConfig({
     }
   },
   define: {
-    // Polyfill process.env for legacy/AI code compatibility
-    'process.env': {}
+    // Map process.env.API_KEY to Vite's environment variable
+    'process.env.API_KEY': JSON.stringify(process.env.VITE_API_KEY)
   }
 });
