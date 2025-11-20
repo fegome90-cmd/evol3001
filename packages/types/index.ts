@@ -5,6 +5,12 @@ export interface Parameter {
   defaultValue?: string;
 }
 
+export interface SystemCategory {
+  id: string;
+  title: string;
+  parameters: Parameter[];
+}
+
 export interface Option {
   id: string;
   label: string; // The UI text (e.g., "Alert")
