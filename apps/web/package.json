@@ -14,7 +14,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^2.2.0",
-    "zustand": "^4.5.0"
+    "zustand": "^4.5.0",
+    "@repo/core": "workspace:*",
+    "@repo/config": "workspace:*",
+    "@repo/ui": "workspace:*",
+    "@repo/types": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",

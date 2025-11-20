@@ -1,4 +1,4 @@
-import { Template } from '../core/types';
+import { Template } from '@repo/types';
 
 export const NURSING_TEMPLATES: Template[] = [
   {

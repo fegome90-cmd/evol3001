@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Template, Section, Option } from '../../packages/core/types';
+import { Template } from '@repo/types';
 import { TextEngine } from '../../packages/core/engine';
 import { NURSING_TEMPLATES } from '../../packages/config/templates';
 

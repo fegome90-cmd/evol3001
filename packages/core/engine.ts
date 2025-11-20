@@ -1,4 +1,4 @@
-import { Template } from './types';
+import { Template } from '@repo/types';
 
 /**
  * The Engine is responsible for deterministic text generation.

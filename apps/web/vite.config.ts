@@ -12,7 +12,8 @@ export default defineConfig({
     alias: {
       "@repo/core": path.resolve(__dirname, "../../packages/core"),
       "@repo/ui": path.resolve(__dirname, "../../packages/ui"),
-      "@repo/config": path.resolve(__dirname, "../../packages/config")
+      "@repo/config": path.resolve(__dirname, "../../packages/config"),
+      "@repo/types": path.resolve(__dirname, "../../packages/types")
     }
   }
 });
