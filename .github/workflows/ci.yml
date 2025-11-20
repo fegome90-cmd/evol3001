@@ -36,8 +36,11 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Lint
+      - name: Lint (ESLint)
         run: pnpm lint
+
+      - name: Lint (Oxc)
+        run: pnpm lint:oxc
 
       - name: Test
         run: pnpm test

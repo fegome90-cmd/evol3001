@@ -44,13 +44,11 @@ export const useStore = create<AppState>((set, get) => ({
       } else {
         newSectionSelections = [optionId];
       }
-    } else {
+    } else if (sectionSelections.includes(optionId)) {
       // Multi-select
-      if (sectionSelections.includes(optionId)) {
-        newSectionSelections = sectionSelections.filter(id => id !== optionId);
-      } else {
-        newSectionSelections = [...sectionSelections, optionId];
-      }
+      newSectionSelections = sectionSelections.filter(id => id !== optionId);
+    } else {
+      newSectionSelections = [...sectionSelections, optionId];
     }
 
     const newSelections = {
