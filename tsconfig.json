@@ -6,6 +6,7 @@
     { "path": "./packages/ui" },
     { "path": "./packages/config" },
     { "path": "./packages/tsconfig" },
-    { "path": "./packages/types" }
+    { "path": "./packages/types" },
+    { "path": "./packages/schema" }
   ]
 }
