@@ -11,7 +11,7 @@ export const NURSING_TEMPLATES: Template[] = [
         title: 'Neurológico',
         type: 'single',
         options: [
-          { id: 'aaox3', label: 'AOTx3', value: 'Alerta y orientado en las 3 esferas (tiempo, espacio, persona)', isDefault: true },
+          { id: 'clote', label: 'CLOTE', value: 'Conciente, Lucido y Orientado en Tiempo y Espacio', isDefault: true },
           { id: 'confused', label: 'Confuso', value: 'Paciente se muestra confuso' },
           { id: 'sedated', label: 'Sedado', value: 'Paciente bajo sedación' },
           { id: 'lethargic', label: 'Letárgico', value: 'Paciente letárgico pero responde a estímulos' }
